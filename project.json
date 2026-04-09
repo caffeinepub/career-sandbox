@@ -1,0 +1,24 @@
+{
+  "overview": "Career Sandbox is a responsive web app for students in grades 10-12 that guides them through personalized career exploration journeys. Starting with a personality-based mindset quiz, students discover which of four career streams — Content & Gaming, Science, Commerce, or Arts — best matches who they are. Each stream features quizzes and micro-projects, culminating in a downloadable 3-5 year career roadmap. A premium subscription unlocks full access to all streams, roadmap generation, and support resources.",
+  "features": [
+    "Minecraft-style rotating motivational quotes on the landing screen",
+    "Personality mindset quiz (non-career questions) that routes you to a matching career stream",
+    "4 career streams: Content & Gaming, Science, Commerce, and Arts — each with quizzes and micro-projects",
+    "Personalized 3-5 year career roadmap downloadable as a PDF",
+    "Static emotional support section with FAQ and curated resource links",
+    "Premium subscription page with Stripe checkout unlocking all features",
+    "Internet Identity login for secure, premium-gated access",
+    "Fully responsive design for mobile and laptop"
+  ],
+  "category": "education",
+  "tags": [
+    "education",
+    "career",
+    "students",
+    "quiz",
+    "roadmap",
+    "productivity",
+    "responsive"
+  ],
+  "last_updated": "2026-04-09T06:39:52.034Z"
+}

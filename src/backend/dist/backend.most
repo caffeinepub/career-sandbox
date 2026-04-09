@@ -1,0 +1,97 @@
+// Version: 1.0.0
+type CareerStream__225556979 = {#arts; #commerce; #contentGaming; #science};
+type Data__791452850<K, V> =
+  {var count : Nat__490723111; kvs : [var ?(K, V)]};
+type Internal__8484328<K, V> =
+  {children : [var ?Node__46230540<K, V>]; data : Data__791452850<K, V>};
+type Leaf__809889148<K, V> = {data : Data__791452850<K, V>};
+type Map__158565046<K, V> = Map__297112838<K, V>;
+type Map__297112838<K, V> =
+  {var root : Node__46230540<K, V>; var size : Nat__490723111};
+type Map__605269027<K, V> = Map__158565046<K, V>;
+type Milestone__819312553 =
+  {
+    actions : [Text];
+    description : Text;
+    skills : [Text];
+    title : Text;
+    year : Nat
+  };
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+type Node__46230540<K, V> =
+  {#internal : Internal__8484328<K, V>; #leaf : Leaf__809889148<K, V>};
+type QuizAnswer__588312951 = {questionId : Nat; selectedOption : Nat};
+type QuizResult__414228418 =
+  {
+    answers : [QuizAnswer__588312951];
+    completedAt : Timestamp__301639476;
+    recommendedStream : CareerStream__225556979
+  };
+type Roadmap__1016976247 =
+  {
+    var milestones : [Milestone__819312553];
+    stream : CareerStream__225556979;
+    var updatedAt : Timestamp__301639476;
+    userId : UserId__158757552
+  };
+type StreamProgress__683819688 =
+  {
+    var completedMicroProjects : [Nat];
+    var completedQuizzes : [Nat];
+    var lastUpdated : Timestamp__301639476;
+    stream : CareerStream__225556979
+  };
+type StripeConfiguration__96897619 =
+  {allowedCountries : [Text]; secretKey : Text};
+type SubscriptionStatus__473694714 =
+  {
+    var expiresAt : ?Timestamp__301639476;
+    var stripeCustomerId : ?Text;
+    var stripeSubscriptionId : ?Text;
+    var tier : SubscriptionTier__75232000;
+    var updatedAt : Timestamp__301639476;
+    userId : UserId__158757552
+  };
+type SubscriptionTier__75232000 = {#free; #premium};
+type Timestamp__301639476 = Int;
+type UserId__158757552 = Principal;
+type UserProfile__446616884 =
+  {
+    var activeStream : ?CareerStream__225556979;
+    var createdAt : Timestamp__301639476;
+    name : Text;
+    var quizResult : ?QuizResult__414228418;
+    userId : UserId__158757552
+  };
+type UserRole__1054455867 = {#admin; #guest; #user};
+actor {
+  stable accessControlState :
+    {
+      var adminAssigned : Bool;
+      userRoles : Map__605269027<Principal, UserRole__1054455867>
+    };
+  stable var configuration : ?StripeConfiguration__96897619;
+  stable profiles :
+    {
+      var root : Node__46230540<Principal, UserProfile__446616884>;
+      var size : Nat__490723111
+    };
+  stable progressState :
+    {
+      var root :
+        Node__46230540<Principal,
+                        Map__605269027<Text, StreamProgress__683819688>>;
+      var size : Nat__490723111
+    };
+  stable roadmaps :
+    {
+      var root : Node__46230540<Principal, Roadmap__1016976247>;
+      var size : Nat__490723111
+    };
+  stable subscriptions :
+    {
+      var root : Node__46230540<Principal, SubscriptionStatus__473694714>;
+      var size : Nat__490723111
+    }
+};

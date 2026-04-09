@@ -1,0 +1,205 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: "General Sans";
+    --font-body: "DM Sans";
+    --font-mono: "Geist Mono";
+    --radius: 0.625rem;
+
+    /* Warm cream background */
+    --background: 0.98 0.015 55;
+    /* Warm near-black foreground */
+    --foreground: 0.2 0.02 50;
+    /* Card: pure warm white */
+    --card: 1.0 0.005 50;
+    --card-foreground: 0.2 0.02 50;
+    --popover: 1.0 0.005 50;
+    --popover-foreground: 0.2 0.02 50;
+
+    /* Primary: peach */
+    --primary: 0.72 0.14 50;
+    /* Warm espresso on peach — readable but not cold black */
+    --primary-foreground: 0.22 0.04 45;
+
+    /* Secondary: sage green */
+    --secondary: 0.68 0.09 145;
+    --secondary-foreground: 0.98 0.005 55;
+
+    /* Muted: warm cream tint */
+    --muted: 0.93 0.02 55;
+    /* Warm medium tone for muted text */
+    --muted-foreground: 0.48 0.03 50;
+
+    /* Accent: green tint for rings, highlights */
+    --accent: 0.72 0.12 145;
+    --accent-foreground: 0.98 0.005 55;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.98 0 0;
+
+    /* Border: warm tinted */
+    --border: 0.88 0.025 55;
+    --input: 0.88 0.025 55;
+    --ring: 0.72 0.14 50;
+
+    /* Charts: peach, sage, terracotta, gold, rose */
+    --chart-1: 0.72 0.14 50;
+    --chart-2: 0.68 0.09 145;
+    --chart-3: 0.62 0.2 35;
+    --chart-4: 0.78 0.18 85;
+    --chart-5: 0.72 0.16 10;
+
+    --sidebar: 1.0 0.005 50;
+    --sidebar-foreground: 0.2 0.02 50;
+    --sidebar-primary: 0.72 0.14 50;
+    --sidebar-primary-foreground: 0.22 0.04 45;
+    --sidebar-accent: 0.93 0.02 55;
+    --sidebar-accent-foreground: 0.3 0.03 50;
+    --sidebar-border: 0.88 0.025 55;
+    --sidebar-ring: 0.72 0.14 50;
+
+    /* Stream colors: distinct, none purely peach */
+    /* Gaming: warm terracotta / burnt orange */
+    --stream-gaming: 0.62 0.2 35;
+    --stream-gaming-light: 0.92 0.06 38;
+    /* Science: forest / sage green */
+    --stream-science: 0.58 0.18 165;
+    --stream-science-light: 0.9 0.06 165;
+    /* Commerce: warm golden yellow */
+    --stream-commerce: 0.72 0.18 85;
+    --stream-commerce-light: 0.93 0.07 88;
+    /* Arts: soft dusty rose / pink */
+    --stream-arts: 0.72 0.16 10;
+    --stream-arts-light: 0.93 0.05 12;
+  }
+
+  .dark {
+    --background: 0.14 0.01 50;
+    --foreground: 0.94 0.01 50;
+    --card: 0.18 0.01 50;
+    --card-foreground: 0.94 0.01 50;
+    --popover: 0.22 0.015 50;
+    --popover-foreground: 0.94 0.01 50;
+
+    --primary: 0.78 0.12 48;
+    --primary-foreground: 0.14 0.01 50;
+
+    --secondary: 0.62 0.07 142;
+    --secondary-foreground: 0.94 0.01 50;
+
+    --muted: 0.24 0.015 50;
+    --muted-foreground: 0.58 0.02 50;
+
+    --accent: 0.65 0.1 145;
+    --accent-foreground: 0.94 0.01 50;
+
+    --destructive: 0.65 0.19 22;
+    --destructive-foreground: 0.14 0.01 50;
+
+    --border: 0.3 0.015 50;
+    --input: 0.3 0.015 50;
+    --ring: 0.78 0.12 48;
+
+    --chart-1: 0.78 0.12 48;
+    --chart-2: 0.62 0.07 142;
+    --chart-3: 0.65 0.16 35;
+    --chart-4: 0.72 0.15 85;
+    --chart-5: 0.68 0.13 10;
+
+    --sidebar: 0.18 0.01 50;
+    --sidebar-foreground: 0.94 0.01 50;
+    --sidebar-primary: 0.78 0.12 48;
+    --sidebar-primary-foreground: 0.14 0.01 50;
+    --sidebar-accent: 0.24 0.015 50;
+    --sidebar-accent-foreground: 0.85 0.01 50;
+    --sidebar-border: 0.3 0.015 50;
+    --sidebar-ring: 0.78 0.12 48;
+
+    --stream-gaming: 0.65 0.18 35;
+    --stream-gaming-light: 0.38 0.12 35;
+    --stream-science: 0.62 0.15 165;
+    --stream-science-light: 0.36 0.1 165;
+    --stream-commerce: 0.68 0.15 85;
+    --stream-commerce-light: 0.4 0.1 85;
+    --stream-arts: 0.68 0.14 10;
+    --stream-arts-light: 0.38 0.1 10;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+@font-face {
+  font-family: "General Sans";
+  src: url("/assets/fonts/GeneralSans.woff2") format("woff2");
+  font-weight: 400 700;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("/assets/fonts/DMSans.woff2") format("woff2");
+  font-weight: 400 700;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/assets/fonts/GeistMono.woff2") format("woff2");
+  font-weight: 400 500;
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .stream-gaming {
+    @apply bg-[oklch(var(--stream-gaming))];
+  }
+
+  .stream-gaming-light {
+    @apply bg-[oklch(var(--stream-gaming-light))];
+  }
+
+  .stream-science {
+    @apply bg-[oklch(var(--stream-science))];
+  }
+
+  .stream-science-light {
+    @apply bg-[oklch(var(--stream-science-light))];
+  }
+
+  .stream-commerce {
+    @apply bg-[oklch(var(--stream-commerce))];
+  }
+
+  .stream-commerce-light {
+    @apply bg-[oklch(var(--stream-commerce-light))];
+  }
+
+  .stream-arts {
+    @apply bg-[oklch(var(--stream-arts))];
+  }
+
+  .stream-arts-light {
+    @apply bg-[oklch(var(--stream-arts-light))];
+  }
+
+  .touch-target {
+    @apply min-h-12 min-w-12;
+  }
+
+  .shadow-card {
+    @apply shadow-[0_2px_8px_0_rgba(120,60,20,0.08)];
+  }
+
+  .shadow-elevated {
+    @apply shadow-[0_8px_24px_0_rgba(120,60,20,0.14)];
+  }
+}
